@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+  
+<category>
+<pattern>WHAT IS * PLUS *</pattern>
+<template><system>bixcalc -a <star index="1"/>,<star index="2"/></system></template>
+</category>
+
+<category>
+<pattern>ADD *</pattern>
+<template><system>bixcalc -a "<star/>"</system></template>
+</category>
+
+<category>
+<pattern>WHAT IS * MINUS *</pattern>
+<template><system>bixcalc -s <star index="1"/>,<star index="2"/></system></template>
+</category>
+
+<category>
+<pattern>SUBTRACT *</pattern>
+<template><system>bixcalc -s "<star/>"</system></template>
+</category>
+
+<category>
+<pattern>WHAT IS * TIMES *</pattern>
+<template><system>bixcalc -m <star index="1"/>,<star index="2"/></system></template>
+</category>
+
+<category>
+<pattern>MULTIPLY *</pattern>
+<template><system>bixcalc -m "<star/>"</system></template>
+</category>
+
+<category>
+<pattern>WHAT IS * DIVIDED BY *</pattern>
+<template><system>bixcalc -d <star index="1"/>,<star index="2"/></system></template>
+</category>
+
+<category>
+<pattern>DIVIDE *</pattern>
+<template><system>bixcalc -d "<star/>"</system></template>
+</category>
+
+<category>
+<pattern>EVALUATE *</pattern>
+<template><system>bixcalc -e "<star/>"</system></template>
+</category>
+</aiml>

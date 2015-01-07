@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+$:.push File.expand_path(File.dirname(__FILE__) + '/../lib')
+
+require 'optparse'
+require 'bixcalc'
+require "socket"
+
+options = {}
+bcalc = Bixcalc::App.new
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: bcalc [OPTIONS]"
+  opts.separator  ""
+  opts.separator  "Options"
+
+  opts.on('-h', '--help', 'Help') { puts opts; exit; }
+  
+  opts.on('-a', '--add NUMBERS', 'Add numbers together') do |numbers|
+    options[:add] = bcalc.format_numbers(numbers)
+    bcalc.add(options[:add])
+  end
+  
+  opts.on('-s', '--subtract NUMBERS', 'Subtract numbers from each other') do |numbers|
+    options[:subtract] = bcalc.format_numbers(numbers)
+    bcalc.subtract(options[:subtract])
+  end
+  
+  opts.on('-m', '--multiply NUMBERS', 'Multiply numbers') do |numbers|
+    options[:multiply] = bcalc.format_numbers(numbers)
+    bcalc.times(options[:multiply])
+  end
+  
+  opts.on('-d', '--divide NUMBERS', 'Divide numbers') do |numbers|
+    options[:divide] = bcalc.format_numbers(numbers)
+    bcalc.divide(options[:divide])
+  end
+  
+  opts.on('-e', '--evaluate NUMBERS', 'Evaluate an equation') do |equation|
+    options[:eval] = equation
+    bcalc.calculate(options[:eval])
+  end
+end.parse!

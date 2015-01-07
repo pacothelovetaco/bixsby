@@ -1,0 +1,7 @@
+:account_name:
+  :protocol:   imap
+  :address:    ""
+  :port:       993
+  :user_name:  ""
+  :password:   ""
+  :enable_ssl: true

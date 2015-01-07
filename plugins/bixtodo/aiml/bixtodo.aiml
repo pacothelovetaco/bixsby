@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<!-- Add todo -->
+<category><pattern>ADD TODO *</pattern>
+<template>
+<system>bixtodo --add "<star/>"</system>
+Very well, I've added todo: <star/>
+</template>
+</category>
+
+<category><pattern>ADD NEW TODO *</pattern>
+<template>
+  <srai>ADD TODO <star/></srai>
+</template>
+</category>
+
+<!-- Mark todo complete -->
+<category><pattern>CHECK OFF TODO *</pattern>
+<template>
+  <system>bixtodo --done <star/></system>
+  <random>
+    <li>Good job sir! You've completed another task!</li>
+    <li>Good work sir!</li>
+    <li>Keep up the good work sir!</li>
+  </random>  
+</template>
+</category>
+
+<category><pattern>I COMPLETED TODO *</pattern>
+<template>
+  <srai>CHECK OFF TODO<star/></srai>
+</template>
+</category>
+
+<category><pattern>COMPLETE  *</pattern>
+<template>
+  <srai>CHECK OFF TODO <star/></srai>
+</template>
+</category>
+
+<category><pattern>COMPLETE TODO *</pattern>
+<template>
+  <srai>CHECK OFF TODO <star/></srai>
+</template>
+</category>
+
+<category><pattern>COMPLETE ITEM *</pattern>
+<template>
+  <srai>CHECK OFF TODO <star/></srai>
+</template>
+</category>
+
+
+<!-- List Tasks -->
+<category><pattern>LIST TODOS</pattern>
+<template>
+  These are your items to complete:
+<system>bixtodo --list</system>
+</template>
+</category>
+
+<category><pattern>LIST TODOS *</pattern>
+<template>
+Here are your items to complete:
+<system>bixtodo --list <star/></system>
+</template>
+</category>
+
+<!-- Delete Todo -->
+<category><pattern>DELETE TODO *</pattern>
+<template>
+<system>bixtodo --delete <star/></system>
+<random>
+  <li>Of course sir.</li>
+  <li>I have removed the item sir.</li>
+  <li>I have removed item <star/> sir.</li>
+</random>  
+</template>
+</category>
+
+<!-- Clear all todos -->
+<category><pattern>DELETE ALL TODOS</pattern>
+<template>
+<system>bixtodo --clear <star/></system>
+<random>
+  <li>All items were deleted sir.</li>
+  <li>I have cleared all the items sir.</li>
+  <li>You todo list is now empty sir.</li>
+</random>  
+</template>
+</category>
+
+<category><pattern>DELETE TODOS</pattern>
+<template>
+<srai>DELETE ALL TODOS</srai>
+</template>
+</category>
+
+<category><pattern>CLEAR ALL TODOS</pattern>
+<template>
+<srai>DELETE ALL TODOS</srai>
+</template>
+</category>
+
+<category><pattern>CLEAR TODOS</pattern>
+<template>
+<srai>DELETE ALL TODOS</srai>
+</template>
+</category>
+
+</aiml>
+

@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+
+$:.push File.expand_path(File.dirname(__FILE__) + '/../lib')
+
+require 'optparse'
+require 'bixtodo'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: btasks [OPTIONS]"
+  opts.separator  ""
+  opts.separator  "Options"
+
+  opts.on('-h', '--help', 'Help') { puts opts; exit; }
+  
+  opts.on('-a', '--add TODO', 'Add a new task') do |task|
+    options[:add] = task
+    Bixtodo::Todo.new.add(options[:add])
+  end
+
+  opts.on('-d', '--done TODO_ID', 'Complete todo') do |todo_id|
+    options[:delete] = todo_id
+    Bixtodo::Todo.new.delete(options[:delete])
+  end
+  
+  opts.on('-t', '--delete TODO_ID', 'Deletes a todo') do |todo_id|
+    options[:delete] = todo_id
+    Bixtodo::Todo.new.delete(options[:delete])
+  end
+  
+  opts.on('-x', '--clear', 'Deletes all todos') do
+    Bixtodo::Todo.new.clear!
+  end
+
+  opts.on('-l', '--list [TAG]', 'List all tasks ') do |option|
+    options[:list] = option
+    Bixtodo::Todo.new(options[:list]).list
+  end
+end.parse!

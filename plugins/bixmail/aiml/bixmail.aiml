@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<!-- Check all accounts -->
+<category>
+<pattern>CHECK MY EMAIL</pattern>
+<template>
+  <bixsby>new_messages?</bixsby>
+  <think><set name="topic">BMAIL</set>
+</template>
+</category>
+
+<category>
+<pattern>CHECK MY EMAIL ACCOUNTS</pattern>
+<template><srai>CHECK MY EMAIL</srai></template>
+</category>
+
+<!-- Not in use but an example that shows how to make Bixsby
+     look for a response.
+-->
+<category>
+<that>YOU HAVE * NEW EMAILS</that>
+<pattern>YES</pattern>
+<template><bixsby>read_messages</bixsby></template>
+</category>
+
+<category>
+<that>YOU HAVE * NEW EMAILS</that>
+<pattern>NO</pattern>
+<template>Very Well sir.</template>
+</category>
+
+<!-- List unread messages -->
+<category>
+<pattern>LIST EMAIL FOR *</pattern>
+<template>
+  <bixsby>list_messages, <star /></bixsby>
+  <think><set name="topic">BMAIL</set>
+</template>
+</category>
+
+<category>
+<pattern>LIST EMAIL FROM *</pattern>
+<template><srai>LIST EMAIL FOR *</srai></template>
+</category>
+
+<category>
+<pattern>LIST EMAILS FROM *</pattern>
+<template><srai>LIST EMAIL FOR *</srai></template>
+</category>
+
+<category>
+<pattern>LIST EMAILS FOR *</pattern>
+<template><srai>LIST EMAIL FOR *</srai></template>
+</category>
+
+<!-- List known email accounts -->
+<category>
+<pattern>LIST EMAIL ACCOUNTS</pattern>
+<template>
+  <bixsby>list_accounts</bixsby>
+  <think><set name="topic">BMAIL</set>
+</template>
+</category>
+
+<category>
+<pattern>LIST * EMAIL ACCOUNTS</pattern>
+<template><srai>LIST EMAIL ACCOUNTS</srai></template>
+</category>
+
+<!-- Module specific responses -->
+<category>
+<pattern>BMAIL RESPONSE *</pattern>
+<template><star /></template>
+</category>
+
+</aiml>
