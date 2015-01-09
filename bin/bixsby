@@ -15,4 +15,4 @@ OptionParser.new do |opts|
   opts.on('-h', '--help', 'help') { puts opts; exit; }
 end.parse!
 
-Bixsby::Server.new('localhost', 2001)
+Bixsby::Server.new('2001')

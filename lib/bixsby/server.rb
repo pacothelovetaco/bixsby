@@ -26,8 +26,8 @@ end
 
 module Bixsby
   class Server
-    def initialize(ip, port)
-      @server                = TCPServer.open(ip, port)
+    def initialize(port)
+      @server                = TCPServer.new(port)
       @connections           = {}
       @connections[:clients] = {}
       @bixsby                = nil
